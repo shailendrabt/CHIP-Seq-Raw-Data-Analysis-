@@ -1,8 +1,5 @@
 # CHIP-Seq-Raw-Data-Analysis Workflow 
-
-
-<img align="right" alt="coding" width ="800" src=
-  "https://crc-pages.pitt.edu/user-manual/_assets/img/advanced-genomics-support/chipseq_02.png">
+<img align="right" alt="coding" width ="800" src= "https://crc-pages.pitt.edu/user-manual/_assets/img/advanced-genomics-support/chipseq_02.png">
 
 
 
