@@ -28,10 +28,10 @@ Chromatin immunoprecipitation followed by sequencing (ChIP-seq) analysis is a ke
 ##################################
 
 ##### Data retrieval from GEO
-# Should be adapted for all datasets
+ Should be adapted for all datasets
 
-# Data from Domcke/Bardet et al. Nature 2015
-# ChIP-seq for the TF NRF1 in mouse embryonic stem cells either wild type (WT) or with no DNA methylation (TKO; triple knockout for DNMT1, DNMT3a, DNMT3b)
+Data from Domcke/Bardet et al. Nature 2015
+ChIP-seq for the TF NRF1 in mouse embryonic stem cells either wild type (WT) or with no DNA methylation (TKO; triple knockout for DNMT1, DNMT3a, DNMT3b)
 # Available on GEO GSE67867
 
 # NRF1_CHIP_WT_1 - GSM1891641 - SRR2500883 - single-end
