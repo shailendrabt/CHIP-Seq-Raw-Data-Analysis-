@@ -1,0 +1,5 @@
+SampleID,Tissue,Factor,Condition,Treatment,Replicate,bamReads,ControlID,bamControl,Peaks,PeakCaller
+NRF1_CHIP_WT_1,ESC,NRF1,WT,none,1,reads/NRF1_CHIP_WT_1.bam,NRF1_INPUT_WT,reads/NRF1_INPUT_WT.bam,peaks/NRF1_CHIP_WT_1_peaks_peakzilla.bed,bed
+NRF1_CHIP_WT_2,ESC,NRF1,WT,none,2,reads/NRF1_CHIP_WT_2.bam,NRF1_INPUT_WT,reads/NRF1_INPUT_WT.bam,peaks/NRF1_CHIP_WT_2_peaks_peakzilla.bed,bed
+NRF1_CHIP_TKO_1,ESC,NRF1,TKO,none,1,reads/NRF1_CHIP_TKO_1.bam,NRF1_INPUT_TKO,reads/NRF1_INPUT_TKO.bam,peaks/NRF1_CHIP_TKO_1_peaks_peakzilla.bed,bed
+NRF1_CHIP_TKO_2,ESC,NRF1,TKO,none,2,reads/NRF1_CHIP_TKO_2.bam,NRF1_INPUT_TKO,reads/NRF1_INPUT_TKO.bam,peaks/NRF1_CHIP_TKO_2_peaks_peakzilla.bed,bed
