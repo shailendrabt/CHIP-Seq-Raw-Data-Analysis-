@@ -123,7 +123,14 @@ sample=NRF1_CHIP_WT_1
 # Run Bowtie 2 (~1 h)
 # Input file can be .fastq.gz or _trimmed.fq.gz if trimming was performed
 # Option -p n if n cores are available
-bowtie2 -x indices/mm10/mm10 -U data/${sample}.fastq.gz > reads/${sample}.sam
+>bowtie2 -x indices/mm10/mm10 -U data/${sample}.fastq.gz > reads/${sample}.sam
+>bowtie2 -x  indices/mm10/mm10 -U data/SRR2500883.fastq.trimmed.gz/SRR2500883_trimmed.fq.gz > reads/83.sam
+39473198 reads; of these:
+  39473198 (100.00%) were unpaired; of these:
+    1672457 (4.24%) aligned 0 times
+    27633590 (70.01%) aligned exactly 1 time
+    10167151 (25.76%) aligned >1 times
+95.76% overall alignment rate
 
 # Filter for -q 10 (~4 min)
 samtools view -Sb -q 10 reads/${sample}.sam > reads/${sample}_nonSorted.bam
