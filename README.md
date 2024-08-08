@@ -1,8 +1,39 @@
 # CHIP-Seq-Raw-Data-Analysis Workflow 
 <img align="right" alt="coding" width ="800" src= "https://crc-pages.pitt.edu/user-manual/_assets/img/advanced-genomics-support/chipseq_02.png">
 
+##########################################
+### Chapter 1: Introduction to ChIP-seq ###
+###########################################
+
+# No code
 
 
+##################################
+### Chapter 2: Getting Started ###
+##################################
+
+##### Data retrieval from GEO
+# Should be adapted for all datasets
+
+# Data from Domcke/Bardet et al. Nature 2015
+# ChIP-seq for the TF NRF1 in mouse embryonic stem cells either wild type (WT) or with no DNA methylation (TKO; triple knockout for DNMT1, DNMT3a, DNMT3b)
+# Available on GEO GSE67867
+
+# NRF1_CHIP_WT_1 - GSM1891641 - SRR2500883 - single-end
+Mapping Cammand LIne -
+indexing file -
+Download mm10 mouse genome file in terminal 
+wget http://hgdownload.soe.ucsc.edu/goldenPath/mm10/bigZips/chromFa.tar.gz -O genomes/mm10/chromFa.tar.gz
+tar -zxvf genomes/mm10/chromFa.tar.gz -C genomes/mm10
+# Keep only the conventional chromosomes (chr1-19,X,Y,M)
+rm genomes/mm10/chromFa.tar.gz genomes/mm10/*random* genomes/mm10/chrUn*
+ 
+# Generate Bowtie 2 index
+cd genomes/mm10/
+bowtie2-build chr1.fa,chr10.fa,chr11.fa,chr12.fa,chr13.fa,chr14.fa,chr15.fa,chr16.fa,chr17.fa,chr18.fa,chr19.fa,chr2.fa,chr3.fa,chr4.fa,chr5.fa,chr6.fa,chr7.fa,chr8.fa,chr9.fa,chrM.fa,chrX.fa,chrY.fa ../../indices/mm10/mm10
+cd ../..
+Mapping- 
+bowtie2 -x  indices/mm10/mm10 -U data/SRR2500883.fastq.trimmed.gz/SRR2500883_trimmed.fq.gz > reads/83.sam
 
 
 
