@@ -75,7 +75,7 @@ Because many cis-regulatory elements are close to TSSs of their targets, it is c
 
 Loading data
 Peak annotation is generally performed on your high confidence peak calls (after looking at concordance betwee replicates). While we have a confident peak set for our data, this set is rather small and will not result in anything meaningful in our functional analyses. We have generated a set of high confidence peak calls using the full dataset. These were obtained post-IDR analysis, (i.e. concordant peaks between replicates) and are provided in BED format which is optimal input for the ChIPseeker package.
-
+<img align="right" alt="coding" width ="800" src="https://a.storyblok.com/f/196663/640x360/86b5f57ecd/nanopore-sequencing-animation.gif">
 Annotation
 Many annotation tools use nearest gene methods for assigning a peak to a gene in which the algorithm looks for the nearest TSS to the given genomic coordinates and annotates the peak with that gene. This can be misleading as binding sites might be located between two start sites of different genes.
 
