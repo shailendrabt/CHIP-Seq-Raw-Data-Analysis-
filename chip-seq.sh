@@ -124,6 +124,7 @@ sample=NRF1_CHIP_WT_1
 # Input file can be .fastq.gz or _trimmed.fq.gz if trimming was performed
 # Option -p n if n cores are available
 >bowtie2 -x indices/mm10/mm10 -U data/${sample}.fastq.gz > reads/${sample}.sam
+#use cammand
 >bowtie2 -x  indices/mm10/mm10 -U data/SRR2500883.fastq.trimmed.gz/SRR2500883_trimmed.fq.gz > reads/83.sam
 39473198 reads; of these:
   39473198 (100.00%) were unpaired; of these:
@@ -134,6 +135,8 @@ sample=NRF1_CHIP_WT_1
 
 # Filter for -q 10 (~4 min)
 samtools view -Sb -q 10 reads/${sample}.sam > reads/${sample}_nonSorted.bam
+##use cammand
+samtools view -Sb -q 10 reads/83.sam > reads/${sample}_nonSorted.bam
 
 # Sort BAM file by genomic coordinates (~5 min)
 samtools sort reads/${sample}_nonSorted.bam > reads/${sample}.bam
