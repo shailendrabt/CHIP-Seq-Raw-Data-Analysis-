@@ -20,7 +20,7 @@
 ### Chapter 1: Introduction to ChIP-seq ###
 ###########################################
 
-# No code
+Chromatin immunoprecipitation followed by sequencing (ChIP-seq) analysis is a key technology in epigenomic research. This method uses an antibody for a specific DNA-binding protein or a histone modification to identify enriched loci within a genome
 
 
 ##################################
