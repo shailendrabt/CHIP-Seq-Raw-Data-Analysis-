@@ -210,6 +210,8 @@ control=NRF1_INPUT_WT
 
 # Run Peakzilla
 bamToBed -i reads/${sample}.bam > reads/${sample}.bed
+##bam to bed format
+bamToBed -i reads/83_sorted.bam > reads/${sample}.bed
 bamToBed -i reads/${control}.bam > reads/${control}.bed
 peakzilla.py reads/${sample}.bed reads/${control}.bed -l peaks/${sample}_peakzilla_report.txt > peaks/${sample}_peakzilla.tsv
 
