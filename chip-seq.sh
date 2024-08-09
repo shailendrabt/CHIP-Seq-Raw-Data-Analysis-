@@ -170,7 +170,8 @@ bamToBed -i reads/${sample}.bam | awk '{if($6=="+"){position=$1":"$2}else if($6=
 # One-line command
 # sample / raw_reads / mapped_reads / percent_mapped / unique_positions / percent_unique / most_repeated_read / number_repeated / percent_repeated
 bamToBed -i reads/${sample}.bam | awk -v OFS="\t" -v sample=$sample -v raw=$(gunzip -c data/${sample}.fastq.gz | awk -v OFS="\t" '(NR%4==2)' | wc -l) 'BEGIN{max=0}{total++;if($6=="+"){position=$1":"$2}else if($6=="-"){position=$1":"$3};count[position]++; if(count[position]>max){max=count[position];maxPos=position}}END{totalPos=length(count); print sample,raw,total,total*100/raw,totalPos,totalPos*100/total,maxPos,count[maxPos],count[maxPos]*100/total}'
-
+USE CAMMAND- 
+bamToBed -i reads/${sample}.bam | awk -v OFS="\t" -v sample=$sample -v raw=$(gunzip -c data/SRR2500883.fastq.trimmed.gz/SRR2500883_trimmed.fq.gz | awk -v OFS="\t" '(NR%4==2)' | wc -l) 'BEGIN{max=0}{total++;if($6=="+"){position=$1":"$2}else if($6=="-"){position=$1":"$3};count[position]++; if(count[position]>max){max=count[position];maxPos=position}}END{totalPos=length(count); print sample,raw,total,total*100/raw,totalPos,totalPos*100/total,maxPos,count[maxPos],count[maxPos]*100/total}'
 ####################################################
 ### Chapter 5: ChIP-seq-specific Quality Control ###
 ####################################################
