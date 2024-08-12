@@ -6,26 +6,27 @@
 <img align="right" alt="coding" width ="800" src="https://ars.els-cdn.com/content/image/1-s2.0-S1046202320300591-gr1.jpg">
 
 
-Data Analysis Pipeline Steps¶
-a. Sequence Reads
+Data Analysis Pipeline Steps
 
-b. Quality Control (Evaluate the quality of the sequencing data) -> Fastqc
+1. Sequence Reads
 
-c. Alignment to Genome & Result Output to SAM -> Bowtie2
+2. Quality Control (Evaluate the quality of the sequencing data) -> Fastqc
 
-d. SAM to BAM conversion -> Samtools
+3. Alignment to Genome & Result Output to SAM -> Bowtie2
 
-e. Sorting BAM by Genomic Coordinates and filtering only uniquely mapped reads -> Sambamba
+4. SAM to BAM conversion -> Samtools
 
-f. Peak Calling (Identify areas in the genome that have been enriched with aligned reads as a consequence of performing a ChIP-Seq experiment) -> MACS
+5. Sorting BAM by Genomic Coordinates and filtering only uniquely mapped reads -> Sambamba
 
-g. Downstream Analysis (annotation of the peaks)
+6. Peak Calling (Identify areas in the genome that have been enriched with aligned reads as a consequence of performing a ChIP-Seq experiment) -> MACS
 
-i. Distance from TSS
+7. Downstream Analysis (annotation of the peaks)
 
-ii. Genomic Context
+8. Distance from TSS
 
-iii. Motif Discovery
+9. Genomic Context
+
+10. Motif Discovery
 
 
 
