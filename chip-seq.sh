@@ -170,44 +170,33 @@ bamToBed -i reads/${sample}.bam | head
 gunzip -c data/${sample}.fastq.gz | awk 'END{print NR/4}'
 gunzip -c data/${sample}.fastq.gz | awk '(NR%4==2)' | wc -l
 
-# Number of aligned reads
-bamToBed -i reads/${sample}.bam | wc -l
- 
-# Number of unique positions chromosome + start
-bamToBed -i reads/${sample}.bam | awk '{if($6=="+"){position=$1":"$2}else if($6=="-"){position=$1":"$3};total[position]=1}END{print length(total)}'
- 
-# One-line command
-# sample / raw_reads / mapped_reads / percent_mapped / unique_positions / percent_unique / most_repeated_read / number_repeated / percent_repeated
-bamToBed -i reads/${sample}.bam | awk -v OFS="\t" -v sample=$sample -v raw=$(gunzip -c data/${sample}.fastq.gz | awk -v OFS="\t" '(NR%4==2)' | wc -l) 'BEGIN{max=0}{total++;if($6=="+"){position=$1":"$2}else if($6=="-"){position=$1":"$3};count[position]++; if(count[position]>max){max=count[position];maxPos=position}}END{totalPos=length(count); print sample,raw,total,total*100/raw,totalPos,totalPos*100/total,maxPos,count[maxPos],count[maxPos]*100/total}'
-USE CAMMAND- 
-bamToBed -i reads/${sample}.bam | awk -v OFS="\t" -v sample=$sample -v raw=$(gunzip -c data/SRR2500883.fastq.trimmed.gz/SRR2500883_trimmed.fq.gz | awk -v OFS="\t" '(NR%4==2)' | wc -l) 'BEGIN{max=0}{total++;if($6=="+"){position=$1":"$2}else if($6=="-"){position=$1":"$3};count[position]++; if(count[position]>max){max=count[position];maxPos=position}}END{totalPos=length(count); print sample,raw,total,total*100/raw,totalPos,totalPos*100/total,maxPos,count[maxPos],count[maxPos]*100/total}'
+
 ####################################################
 ### Chapter 5: ChIP-seq-specific Quality Control ###
 ####################################################
-
-##### ChIPQC
-
-# Open R
-R
-
-# Load libraries and set up the environment
-library(ChIPQC)
-library(BiocParallel)
-register(SerialParam())
-
-# Run analysis and create report of results (~10 min)
-qc=ChIPQC("NRF1_sample_sheet_without_peaks.csv", "mm10", blacklist="mm10_blacklist.bed", consensus=TRUE, bCount=TRUE)
-ChIPQCreport(qc, facet=FALSE, colourBy="Condition")
-
-# Close R (and confirm with y)
-q()
 
 
 ###############################
 ### Chapter 6: Peak Calling ###
 ###############################
 
-##### Peakzilla for transcription factor data
+6) macs2
+ macs2 callpeak -t sorted.bam -f BAM --name=peak1q --outdir macs2_62(file name) -q 0.01
+#create four file name- peak1q_model.pdf   peak1q_model.r   peak1q_peaks.narrowPeak  peak1q_peaks.xls   peak1q_summits.bed
+create model.pdf file= using macs2 tool
+Rscript NAME_model.r (use peak1_model.r
+Rscript peak1_model.r(create model.r)
+#Rscript peak1q_model.r( all output files start peak1q_)
+
+# Ok, now let’s do the same peak calling for the rest of our samples:
+ 
+ #Command line: normal versus treated
+macs2 callpeak -t sorted_dup.bam -c SRR9211592_1.sorted_control1.bam -f BAM --name=peak1q --outdir macs2_ct -q 0.01(macs2 control data and treated data)
+use cammand - Rscript peak1q_model.r 
+callpeak -t sorted_dup.bam -c SRR9211592_1.sorted_control1.bam -m 2 50 -n macs2_with_control/SRR9211592_1.sorted_control1.bam
+  
+
+
 
 # Create directory for peaks
 mkdir peaks
