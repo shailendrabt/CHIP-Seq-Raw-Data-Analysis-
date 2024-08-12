@@ -72,9 +72,9 @@ trim_galore -q 20 --stringency 2 -o data data/${sample}.fastq.gz
 
 Data from Domcke/Bardet et al. Nature 2015
 ChIP-seq for the TF NRF1 in mouse embryonic stem cells either wild type (WT) or with no DNA methylation (TKO; triple knockout for DNMT1, DNMT3a, DNMT3b)
-# Available on GEO GSE67867
+#Available on GEO GSE67867
 
-# NRF1_CHIP_WT_1 - GSM1891641 - SRR2500883 - single-end
+#NRF1_CHIP_WT_1 - GSM1891641 - SRR2500883 - single-end
 Mapping Cammand LIne -
 indexing file -
 Download mm10 mouse genome file in terminal 
@@ -83,15 +83,35 @@ tar -zxvf genomes/mm10/chromFa.tar.gz -C genomes/mm10
 # Keep only the conventional chromosomes (chr1-19,X,Y,M)
 rm genomes/mm10/chromFa.tar.gz genomes/mm10/*random* genomes/mm10/chrUn*
  
-# Generate Bowtie 2 index
+#Generate Bowtie 2 index
 > cd genomes/mm10/
  > bowtie2-build chr1.fa,chr10.fa,chr11.fa,chr12.fa,chr13.fa,chr14.fa,chr15.fa,chr16.fa,chr17.fa,chr18.fa,chr19.fa,chr2.fa,chr3.fa,chr4.fa,chr5.fa,chr6.fa,chr7.fa,chr8.fa,chr9.fa,chrM.fa,chrX.fa,chrY.fa ../../indices/mm10/mm10
 > cd ../..
 > Mapping- bowtie2 -x  indices/mm10/mm10 -U data/SRR2500883.fastq.trimmed.gz/SRR2500883_trimmed.fq.gz > reads/83.sam
 
+· Peak Calling
 
+This step identifies areas in the genome that have been enriched with aligned reads as a result of performing ChIP-sequencing experiment.
 
+(Enrichment = Immunoprecipitation reads/background reads (mock IP or untagged IP))
 
+MACS Steps and Parameters:
+
+1) Removing redundancy: ridding duplicate tags and keeping only single read at each location.
+
+2) Modelling the shift size
+
+3) Scaling libraries
+
+4) Effective genome length
+
+5) Peak detection
+
+6) Estimation of false discovery rate
+
+Directing error to a log file with the ‘2>’ function:
+
+macs2 callpeak –t <input_filename.bam> -c <input_filename.bam> -f BAM –g <the value> -n <prefix for output> -B --outdir <foldername> 2> <filename.log>
 
 
 
