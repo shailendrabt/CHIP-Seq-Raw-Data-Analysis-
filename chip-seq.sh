@@ -191,9 +191,10 @@ Rscript peak1_model.r(create model.r)
 # Ok, now let’s do the same peak calling for the rest of our samples:
  
  #Command line: normal versus treated
-macs2 callpeak -t sorted_dup.bam -c SRR9211592_1.sorted_control1.bam -f BAM --name=peak1q --outdir macs2_ct -q 0.01(macs2 control data and treated data)
-use cammand - Rscript peak1q_model.r 
-callpeak -t sorted_dup.bam -c SRR9211592_1.sorted_control1.bam -m 2 50 -n macs2_with_control/SRR9211592_1.sorted_control1.bam
+macs2 callpeak -t sorted_dup.bam -c 83_sorted.bam -f BAM --name=peak1q --outdir macs2_ct -q 0.01(macs2 control data and treated data)
+#use cammand - craate model
+Rscript peak1q_model.r 
+callpeak -t 83_sorted.bam -c 83_nonsorted.bam -m 2 50 -n macs2_with_control/83_nonsorted.bam
   
 
 
