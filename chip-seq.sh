@@ -3,12 +3,21 @@
 ### Chapter 1: Introduction to ChIP-seq ###
 ###########################################
 
-# No code
+
+#Introduction to ChIP-seq¶
+#Chromatin immunoprecipitation (ChIP) experiments are performed to identify DNA bound to specific (chromatin) 
+#proteins of interest. The first step involves isolating the chromatin and immunoprecipitating (IP) fragments 
+#with an antibody against the protein of interest. In ChIP-seq, the immunoprecipitated DNA fragments are then 
+#sequenced, followed by identification of enriched regions of DNA or peaks. These peak calls can then be used to 
+#make biological inferences by determining the associated genomic features and/or over-represented sequence motifs.
+
+
 
 
 ##################################
 ### Chapter 2: Getting Started ###
 ##################################
+
 
 ##### Data retrieval from GEO
 # Should be adapted for all datasets
