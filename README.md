@@ -6,7 +6,26 @@
 <img align="right" alt="coding" width ="800" src="https://ars.els-cdn.com/content/image/1-s2.0-S1046202320300591-gr1.jpg">
 
 
+Data Analysis Pipeline Steps¶
+a. Sequence Reads
 
+b. Quality Control (Evaluate the quality of the sequencing data) -> Fastqc
+
+c. Alignment to Genome & Result Output to SAM -> Bowtie2
+
+d. SAM to BAM conversion -> Samtools
+
+e. Sorting BAM by Genomic Coordinates and filtering only uniquely mapped reads -> Sambamba
+
+f. Peak Calling (Identify areas in the genome that have been enriched with aligned reads as a consequence of performing a ChIP-Seq experiment) -> MACS
+
+g. Downstream Analysis (annotation of the peaks)
+
+i. Distance from TSS
+
+ii. Genomic Context
+
+iii. Motif Discovery
 
 
 
@@ -22,10 +41,25 @@
 
 Chromatin immunoprecipitation followed by sequencing (ChIP-seq) analysis is a key technology in epigenomic research. This method uses an antibody for a specific DNA-binding protein or a histone modification to identify enriched loci within a genome
 
+Sequencing Workflow Steps:
+
+a. Crosslinked a known protein to strand of DNA in vivo
+
+b. Shear the single DNA stretch into many small segments
+
+c. Select the bound DNA-Protein complex using antibody and isolate only the DNA (Immunoprecipiating).
+d. Amplify the DNA with PCR and sequence the DNA segment
+Pipeline Explained and examples¶
+Before we start: - Create a directory called chipseq on your cluster - In the chipseq directory, create 6 directories that are logs, meta, raw_data, reference_data, results and scripts. In the results directory, create 2 directories that are bowtie and fastqc.
+
+
 
 ##################################
 ### Chapter 2: Getting Started ###
 ##################################
+Concept¶
+Goal: Chromatin immunoprecipitation (ChIP) experiments are performed to identify DNA that binds specific (chromatin) proteins of interest.
+
 ##### Trim Galore (optional)
 
  Run Trim Galore (~10 min)
